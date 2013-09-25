@@ -23,12 +23,12 @@ import numpy
 
 from PySide import QtCore, QtOpenGL, QtGui
 
-from zinc.context import Context
-from zinc.graphic import Graphic
-from zinc.sceneviewer import SceneViewerInput, SceneViewer
-from zinc.field import Field
-from zinc.element import Element, ElementBasis
-from zinc.graphicsmaterial import GraphicsMaterial
+from opencmiss.zinc.context import Context
+from opencmiss.zinc.graphic import Graphic
+from opencmiss.zinc.sceneviewer import SceneViewerInput, SceneViewer
+from opencmiss.zinc.field import Field
+from opencmiss.zinc.element import Element, ElementBasis
+from opencmiss.zinc.graphicsmaterial import GraphicsMaterial
 
 from segmentationstep.undoredo import CommandAdd
 
@@ -499,7 +499,7 @@ class ZincScene(QtOpenGL.QGLWidget):
             elif mouseevent.button() == QtCore.Qt.RightButton:
                 scene_input.setButtonNumber(3)
 
-            self._scene_viewer.setInput(scene_input)
+            self._scene_viewer.processInput( scene_input)
         else:
             self.addNode(mouseevent.x(), mouseevent.y())
 
@@ -518,7 +518,7 @@ class ZincScene(QtOpenGL.QGLWidget):
             elif mouseevent.button() == QtCore.Qt.RightButton:
                 scene_input.setButtonNumber(3)
 
-            self._scene_viewer.setInput(scene_input)
+            self._scene_viewer.processInput( scene_input)
 
     def mouseMoveEvent(self, mouseevent):
         '''
@@ -532,7 +532,7 @@ class ZincScene(QtOpenGL.QGLWidget):
             if mouseevent.type() == QtCore.QEvent.Leave:
                 scene_input.setPosition(-1, -1)
 
-            self._scene_viewer.setInput(scene_input)
+            self._scene_viewer.processInput( scene_input)
 
             # The viewport has been changed so update the OpenGL scene.
             self.updateGL()
