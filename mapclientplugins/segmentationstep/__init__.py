@@ -17,7 +17,7 @@ This file is part of MAP Client. (http://launchpad.net/mapclient)
     You should have received a copy of the GNU General Public License
     along with MAP Client.  If not, see <http://www.gnu.org/licenses/>..
 """
-__version__ = '0.1.1'
+__version__ = '0.1.2'
 __author__ = 'Hugh Sorby'
 __stepname__ = 'Segmentation'
 __location__ = 'https://github.com/mapclient-plugins/segmentationstep/archive/master.zip'
