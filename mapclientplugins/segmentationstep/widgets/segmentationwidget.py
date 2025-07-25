@@ -273,17 +273,17 @@ class SegmentationWidget(QtWidgets.QWidget):
         Qt::Control, Qt::ControlModifier, and Qt::CTRL enum values 
         correspond to the Command keys.
         '''
-        if keyevent.key() == QtCore.Qt.Key_1 and keyevent.modifiers() & QtCore.Qt.CTRL and not keyevent.isAutoRepeat():
+        if keyevent.key() == QtCore.Qt.Key.Key_1 and keyevent.modifiers() & QtCore.Qt.KeyboardModifier.ControlModifier and not keyevent.isAutoRepeat():
             self._changeHandler(ViewMode.SEGMENT_POINT)
-        if keyevent.key() == QtCore.Qt.Key_2 and keyevent.modifiers() & QtCore.Qt.CTRL and not keyevent.isAutoRepeat():
+        if keyevent.key() == QtCore.Qt.Key.Key_2 and keyevent.modifiers() & QtCore.Qt.KeyboardModifier.ControlModifier and not keyevent.isAutoRepeat():
             self._changeHandler(ViewMode.SEGMENT_CURVE)
-        if keyevent.key() == QtCore.Qt.Key_3 and keyevent.modifiers() & QtCore.Qt.CTRL and not keyevent.isAutoRepeat():
+        if keyevent.key() == QtCore.Qt.Key.Key_3 and keyevent.modifiers() & QtCore.Qt.KeyboardModifier.ControlModifier and not keyevent.isAutoRepeat():
             self._changeHandler(ViewMode.PLANE_NORMAL)
-        if keyevent.key() == QtCore.Qt.Key_4 and keyevent.modifiers() & QtCore.Qt.CTRL and not keyevent.isAutoRepeat():
+        if keyevent.key() == QtCore.Qt.Key.Key_4 and keyevent.modifiers() & QtCore.Qt.KeyboardModifier.ControlModifier and not keyevent.isAutoRepeat():
             self._changeHandler(ViewMode.PLANE_ROTATION)
-        if keyevent.key() == QtCore.Qt.Key_Delete and not keyevent.isAutoRepeat():
+        if keyevent.key() == QtCore.Qt.Key.Key_Delete and not keyevent.isAutoRepeat():
             self._deleteClicked()
-        if keyevent.key() == QtCore.Qt.Key_Backspace and not keyevent.isAutoRepeat():
+        if keyevent.key() == QtCore.Qt.Key.Key_Backspace and not keyevent.isAutoRepeat():
             self._deleteClicked()
 
         if keyevent.key() == 68 and not keyevent.isAutoRepeat():

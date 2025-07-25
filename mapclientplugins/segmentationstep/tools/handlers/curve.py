@@ -53,7 +53,7 @@ class Curve(AbstractSelection):
         super(Curve, self).leave()
 
     def mousePressEvent(self, event):
-        if self._active_button != QtCore.Qt.NoButton:
+        if self._active_button != QtCore.Qt.MouseButton.NoButton:
             return
 
         self._active_button = event.button()
@@ -66,7 +66,8 @@ class Curve(AbstractSelection):
         x = event.x() * pixel_scale
         y = event.y() * pixel_scale
         if self._node_status:
-            if (event.modifiers() & QtCore.Qt.CTRL) and event.button() == QtCore.Qt.RightButton:
+            if ((event.modifiers() & QtCore.Qt.KeyboardModifier.ControlModifier)
+                    and event.button() == QtCore.Qt.MouseButton.RightButton):
                 node_id = self._node_status.getNodeIdentifier()
                 self._active_curve.removeNode(node_id)
                 curve_index = self._model.getCurveIdentifier(self._active_curve)
@@ -80,7 +81,8 @@ class Curve(AbstractSelection):
                 self._node_status = None
                 self._zinc_view.setMouseTracking(False)
                 self._finshing_curve = True
-            elif (event.modifiers() & QtCore.Qt.CTRL) and event.button() == QtCore.Qt.LeftButton:
+            elif ((event.modifiers() & QtCore.Qt.KeyboardModifier.ControlModifier)
+                  and event.button() == QtCore.Qt.MouseButton.LeftButton):
                 node = self._zinc_view.getNearestNode(x, y)
                 if node and node.isValid():
                     self._closing_curve_node_id = self._node_status.getNodeIdentifier()
@@ -88,7 +90,8 @@ class Curve(AbstractSelection):
                 self._adding_to_curve = True
             else:
                 super(Curve, self).mousePressEvent(event)
-        elif (event.modifiers() & QtCore.Qt.CTRL) and event.button() == QtCore.Qt.LeftButton:
+        elif ((event.modifiers() & QtCore.Qt.KeyboardModifier.ControlModifier)
+              and event.button() == QtCore.Qt.MouseButton.LeftButton):
             # The start of a new curve
             self._active_curve = None
             node = self._zinc_view.getNearestNode(x, y)
