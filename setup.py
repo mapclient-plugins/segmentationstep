@@ -46,7 +46,8 @@ package_dependencies = [
     "setuptools",
     "PySide6",
     "numpy",
-    "cmlibs.zinc"
+    "cmlibs.zinc",
+    "cmlibs.utils",
 ]
 
 setup(name=u'mapclientplugins.segmentationstep',
